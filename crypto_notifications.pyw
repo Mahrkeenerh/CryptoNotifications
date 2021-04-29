@@ -36,8 +36,13 @@ def main():
         notification.notify(title="Crypto notification", message="Running", app_icon = icon_path)
 
     while True:
-        for i in json_data["array"]:
-            request_crypto(i[0], i[1], i[2])
+
+        try:
+            for i in json_data["array"]:
+                request_crypto(i[0], i[1], i[2])
+
+        except:
+            pass
 
         sleep(json_data["sleep"])
 
